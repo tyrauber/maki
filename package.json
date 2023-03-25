@@ -8,7 +8,7 @@
   "module": "browser.esm.js",
   "scripts": {
     "test": "tape test/*.test.js | tap-spec",
-    "build": "node scripts/make-layouts.js && node scripts/format-icons.js && node scripts/make-browser.js"
+    "build": "node scripts/make-layouts.js && node scripts/format-icons.js && node scripts/make-browser.js && node scripts/make-spritesheets.js"
   },
   "devDependencies": {
     "esbuild": "^0.12.25",
@@ -17,6 +17,8 @@
     "mkdirp": "^0.5.1",
     "pify": "^4.0.1",
     "prettier": "^1.14.3",
+    "sharp": "^0.29.3",
+    "sharpsheet": "tyrauber/sharpsheet",
     "tap-spec": "^5.0.0",
     "tape": "^4.2.2",
     "xml2js": "^0.4.19"
@@ -40,6 +42,9 @@
     "hooks": {
       "pre-commit": "eslint ./scripts/* && prettier --write ./scripts/* && npm run build && git add ."
     }
+  },
+  "resolutions": {
+    "sharp": "^0.29.0"
   },
   "prettier": {
     "singleQuote": true
